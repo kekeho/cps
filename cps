@@ -13,7 +13,14 @@ help_txt = """Usage:
 \tcps --help :\tTHIS IS IT (by Michael Jackson)"""
 
 
-argv = sys.argv[1]
+while True:
+    try:
+        argv = sys.argv[1]
+        break
+    except IndexError:
+        print("ERROR: Missing argument.")
+        exit()
+
 if argv in "low":
     result = subprocess.getstatusoutput("sudo cpufreq-set -r -u 800Mhz")
 elif argv in "max":
