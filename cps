@@ -22,10 +22,13 @@ while True:
         exit()
 
 if argv in "low":
-    result = subprocess.getstatusoutput("sudo cpufreq-set -r -u 800Mhz")
+    lowfreq = subprocess.getstatusoutput("cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_min_freq")
+    hz = lowfreq[1].split("\n")[0]
+    result = subprocess.getstatusoutput("sudo cpufreq-set -r -u "+hz)
 elif argv in "max":
-    result = subprocess.getstatusoutput(
-        "sudo cpufreq-set -r -u 100Ghz")  # 実際は最大周波数となるので問題はない。
+    maxfreq = subprocess.getstatusoutput("cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_max_freq")
+    hz = maxfreq[1].split("\n")[0]
+    result = subprocess.getstatusoutput("sudo cpufreq-set -r -u "+hz)
 elif argv in "now":
     result = subprocess.getstatusoutput("cpufreq-info -m -f")
     print(result[1])
@@ -39,7 +42,7 @@ else:
                 "sudo cpufreq-set -r -u {giga}Ghz".format(giga=float(argv)))
             break
         except ValueError:
-            print("ERROR: ValueError")
+            print("ERROR: ArgumentError")
             exit()
 
 
