@@ -1,4 +1,5 @@
-# CPS ~Easy to set the CPU frequency~
+# CPS
+Easy to set the CPU frequency
 ## Usage:
 ```
 cps low :       Set cpu frequency low (@ 800Mhz). CpuFan will be quiet.
