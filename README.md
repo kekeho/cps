@@ -16,7 +16,7 @@ CPUの周波数を`max`か`low`で簡単に設定して、ファンの音を抑�
 
 - 必須アプリ
     cpufreq  
-    > `sudo apt-get install cpufreq`してインストールしておきましょう。
+    > `sudo apt-get install cpufrequtils`してインストールしておきましょう。
 
 # English:
 - - - -
@@ -25,4 +25,4 @@ It is also possible to enter an arbitrary number and set an appropriate value.
 
 - Required application
     cpufreq  
-    > install command: `sudo apt-get install cpufreq`
+    > install command: `sudo apt-get install cpufrequtils`
